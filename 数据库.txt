@@ -1,0 +1,33 @@
+﻿//当前客流量表
+create 'temp','range','time'
+//客流量历史表
+create 'temp_log','count'
+//当前店内人数表
+create 'store_temp','time'
+//入店量、入店率历史表
+create 'store_log','count','rate'
+//顾客驻留时间表
+create 'store_time','intime','outtime','subtract'
+//顾客访问次数及时间
+create 'human_times','time','values'
+//顾客访问时间间隔
+create 'human_history','last_time','this_time','subtract
+//新老顾客人数比例的历史表
+create 'new_old_history','new','old','rate'
+//顾客访问次数历史
+create 'count_human_times','1','2','3','4','5','other'
+//顾客驻店时间历史
+create 'shop_times','1','5','10','15','30','60','other'
+//顾客访问周期历史
+create 'interview_times','12','24','36','48','60','72','other'
+//顾客跳出率历史
+create 'jump_log','jump_human','all_human','rate'
+//深坊率历史
+create 'deep_log','num','all','rate'
+//活跃度历史
+create 'activity_log','high','medium','low','sleep'
+
+//实时的你怎么样方便，你来建表吧  需要什么说明下 我来写
+
+
+

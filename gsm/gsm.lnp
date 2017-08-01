@@ -1,0 +1,6 @@
+"main.obj",
+"delay.obj",
+"SIMxxx.obj",
+"timer0.obj",
+"uart.obj" 
+TO "gsm" 

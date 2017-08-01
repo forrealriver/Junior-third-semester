@@ -1,0 +1,74 @@
+C51 COMPILER V9.01   MAIN                                                                  07/30/2017 17:26:48 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: E:\Keil_v5\51\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          
+   2          #include "string.h"
+   3          #include "delay.h"
+   4          #include "uart.h"
+   5          #include "timer0.h"
+   6          #include "SIMxxx.h"
+   7          
+   8          sbit P10=P0^0;
+   9          sbit P11=P0^1;
+  10          sbit RUNING_LED=P0^2;
+  11          void main(void)
+  12          {
+  13   1              u8 res;
+  14   1              Uart1Init();
+  15   1              Timer0Init();
+  16   1              EA=1;   //¿ª×ÜÖÐ¶Ï
+  17   1              res=1;
+  18   1              P10=0;
+  19   1              RUNING_LED=0;
+  20   1      
+  21   1              while(res)
+  22   1              {
+  23   2                      res=sim900a_work_test();
+  24   2              }
+  25   1              res=1;
+  26   1              while(res)
+  27   1              {
+  28   2                      res=sim900a_enmessage_mode_out();
+  29   2              } 
+  30   1              P10=1;
+  31   1              res=1;
+  32   1              while(1)
+  33   1              {
+  34   2                      if(Flag_Rec_Message==1) 
+  35   2                      {
+  36   3                              Flag_Rec_Message=0;
+  37   3                              res=SIM_HANDLE_MESSAGE_CMD();
+  38   3                         if(res)
+  39   3                              {
+  40   4                                      if(res==1)              RUNING_LED=0;
+  41   4                                      else if(res==2)         RUNING_LED=1;
+  42   4                              } 
+  43   3                      }               
+  44   2              }       
+  45   1      }
+  46          
+  47          
+  48          
+  49          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     64    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.01   MAIN                                                                  07/30/2017 17:26:48 PAGE 2   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

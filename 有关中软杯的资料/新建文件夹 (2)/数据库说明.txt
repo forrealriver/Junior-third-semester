@@ -1,0 +1,85 @@
+
+//是圆圈表那个 00到23时的客流量表 hour:0 表示00点客流量 hour:23表示23点客流量
+create 'day_keliu','hour'
+//面的所有'hour','day','week','month'均用标识记录历史数据 比如 hour:1 过去一小时的 hour:2 过去两小时的
+//now 为实时值
+//每一个的行键是 “1”，没有说明的标识就是用“1”表示
+create 'keliu','now','hour','day','week','month','h_hour','h_day','h_week','h_month'
+
+
+create 'rudian','now','hour','day','week','month','h_hour','h_day','h_week','h_month'
+
+create 'rudr','now','hour','day','week','month','h_hour','h_day','h_week','h_month'
+
+create 'zhouqi1','now','rate','hour','day','week','month','h_hour','h_day','h_week','h_month'
+create 'zhouqi2','now','rate','hour','day','week','month','h_hour','h_day','h_week','h_month'
+create 'zhouqi3','now','rate','hour','day','week','month','h_hour','h_day','h_week','h_month'
+create 'zhouqi4','now','rate','hour','day','week','month','h_hour','h_day','h_week','h_month'
+create 'zhouqi5','now','rate','hour','day','week','month','h_hour','h_day','h_week','h_month'
+
+create 'new_old','new','old','hour','day','week','month','h_hour','h_day','h_week','h_month'
+
+create 'zhudian1','now','hour','day','week','month','h_hour','h_day','h_week','h_month'
+create 'zhudian2','now','hour','day','week','month','h_hour','h_day','h_week','h_month'
+create 'zhudian3','now','hour','day','week','month','h_hour','h_day','h_week','h_month'
+create 'zhudian4','now','hour','day','week','month','h_hour','h_day','h_week','h_month'
+
+演示场景
+1.WIFI探针
+    学校食堂
+    探针设置位置为食堂门口
+    已经将探针放置若干小时，探针处于开启状态
+    演示短信模块一次关闭，一次开启，把继电器跳转身录进去
+
+2.数据采集
+    打开habse数据库（先前已打开，不要展示开启过程，只要给看数据）
+    直接展示结构化后的数据( scan '00aabbcc')
+    刷新两次就好
+3.开启服务器（等我回来录屏，先不管）
+    开启服务器
+    可以看到数据库成功打开进行数据采集展示
+    shellhabse展示
+    开启Spark展示
+
+4.页面展示
+    登录网址
+    进入基于wifi探针的商业大数据分析系统
+    首先 登录
+    输入账号密码
+    成功登陆
+    页面展示分客流量展示
+    入店量展示
+    入店率展示
+    来访周期展示
+    新老顾客展示
+    顾客活跃度展示
+    驻店时长展示
+    深访率，跳出率展示
+    首先查看探针实时接收到的实时客流量展示
+    页面对实时客流量以及变化趋势，以动态加载折线图的形式展示
+    并伴有历史比较和下一时段的客流量预测，预测采用Spark机器学习中的 二项logistic回归模型为商家提供参考
+    支持环比，并从小时，日 周 月 四个维度进行对比，分析
+
+    此外根据商店客流量在一周内周期性变化的特性，重新训练了预测模型 并加以展示，更加人性化的为商家提供信息参考，以便于调整营销方案
+
+    接着查看入店量、展示界面，展现模式与客流量页面相同
+    入店的判别我们采用固定在特殊位置的两个探针来确定位置
+    ，顾客经过特定区域，且行动方向为设定入店方向，视为入店
+    入店率的处理，则是将数据与客流量比较得出
+    来访周期的展示
+    将入店顾客按照距离上一次的来访间隔分为【0,1】天【1天，1周】【1 周以上】，从而动态归类统计人数，并分析展示不同时间间隔人数所占 比例
+    进入新老顾客页面
+
+    将实时入店的新老顾客以动态比例图实时展示
+    并以动态柱状图的形式对实时顾客人数进行展示
+    并加以环比分析
+
+    进入顾客活跃度页面
+    使用Echart图表中的南丁格尔饼状图对不同活跃的顾客比例进行展示
+    可以看到高中低、沉睡活跃度所占比例得到展示
+    并有环比分析，
+    进入驻店时长页面展示
+    根据不同顾客驻店时间长度不同来进行归类，可以看见由于收集数据的 时间长度有限，驻店时长在【0,1】天范围内的出现数据
+
+    深访率，根据当前顾客的驻店时长判断，大于固定阙值的为深入访问， 数据展示仍然为动态展示
+    跳出率，根据当前顾客的驻点时间长度判断，小于固定阙值的为跳出访 问数据展示仍然为动态展示

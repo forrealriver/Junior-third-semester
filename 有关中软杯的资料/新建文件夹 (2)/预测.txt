@@ -1,0 +1,59 @@
+    val sqcX=new SQLContext(sc)
+    //准备训练集合
+    val out_fli1 = new FileWriter("/home/hadoop/Documents/dataa",true)
+    out_fli1.write("6,9,200")
+    out_fli1.close()
+    val raw_data=sc.textFile("/home/hadoop/Documents/dataa")
+    val map_data=raw_data.map{x=>
+      val split_list=x.split(",")
+      (split_list(0).toInt,split_list(1).toInt,split_list(2).toInt)
+    }
+    val dfx=sqcX.createDataFrame(map_data)
+    val datax = dfx.toDF("month", "day" ,"keliu")
+    val colArray = Array("month", "day")
+    val assembler = new VectorAssembler().setInputCols(colArray).setOutputCol("features")
+    val vecDF: DataFrame = assembler.transform(datax)
+
+
+    val out_fli2 = new FileWriter("/home/hadoop/Documents/xx")
+    out_fli2.write("6,15,0")
+    out_fli2.close()
+    val raw_data_predict=sc.textFile("/home/hadoop/Documents/xx")
+    val map_data_for_predict=raw_data_predict.map{x=>
+      val split_list=x.split(",")
+      (split_list(0).toInt,split_list(1).toInt,split_list(2).toInt)
+    }
+    val df_for_predict=sqcX.createDataFrame(map_data_for_predict)
+    val data_for_predict = df_for_predict.toDF("month", "day" ,"keliu")
+    val colArray_for_predict = Array("month", "day")
+    val assembler_for_predict = new VectorAssembler().setInputCols(colArray_for_predict).setOutputCol("features")
+    val vecDF_for_predict: DataFrame = assembler_for_predict.transform(data_for_predict)
+    // 建立模型，预测keliu
+    // 设置线性回归参数
+    val lr1 = new LinearRegression()
+    val lr2 = lr1.setFeaturesCol("features").setLabelCol("keliu").setFitIntercept(true)
+    // RegParam：正则化
+    val lr3 = lr2.setMaxIter(10).setRegParam(0.3).setElasticNetParam(0.8)
+    val lr = lr3
+
+    // 将训练集合代入模型进行训练
+    val lrModel = lr.fit(vecDF)
+    // 输出模型全部参数
+    lrModel.extractParamMap()
+    val predictions: DataFrame = lrModel.transform(vecDF_for_predict)
+    println("输出预测结果")
+    val predict_result: DataFrame =predictions.selectExpr("prediction")
+    var listRow= predict_result.rdd.collect()
+    var ms=listRow(0).toString()
+    var redict_re=ms.slice(1,ms.length-1)
+    println(redict_re.toDouble.toInt)
+
+客流量
+
+时 "month","week","day","hour" +values
+天 "month","week","day" +values
+周 "month","week","day" +values
+月 "month" +values
+
+星期
+周 ""week" +values     

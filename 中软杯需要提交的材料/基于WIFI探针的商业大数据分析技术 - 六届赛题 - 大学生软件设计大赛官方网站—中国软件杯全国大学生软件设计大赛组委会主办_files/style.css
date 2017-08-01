@@ -1,0 +1,406 @@
+/*
+*样式初始化
+*/
+*{ 
+	padding: 0; 
+	margin: 0; 
+
+} 
+body{
+	font-size:12px;
+}
+table{ 
+	/*border-collapse: collapse; */
+	border-spacing: 0; 
+}
+td{
+	VERTICAL-ALIGN: top;
+
+}
+fieldset,img { 
+	border: 0; 
+} 
+address,caption,cite,code,dfn,em,th,var { 
+	font-weight: normal; 
+	font-style: normal; 
+} 
+ol,ul,li{ 
+	list-style: none; 
+} 
+caption,th { 
+	text-align: left; 
+} 
+h1,h2,h3,h4,h5,h6 { 
+	font-weight: normal;
+	font-size: 100%; 
+} 
+q:before,q:after { 
+	content:”; 
+} 
+abbr,acronym { 
+	border: 0; 
+}
+a{
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color:#666666;
+
+}
+a:link{
+	color: #333333;
+	text-decoration: none;
+}
+a:visited{
+	text-decoration: none;
+	color: #333333;
+}
+a:hover{
+	color: #FF0000;
+}
+a:active{
+	text-decoration: none;
+}
+
+.wrap{
+	width:100%;
+	margin:auto;
+}
+.mt10{
+	margin-top:10px;
+}
+.mb10{
+	margin-bottom:10px;
+}
+.cleardiv{
+	clear:both;
+}
+.FL{
+	float:left;
+}
+.FR{
+	float:right
+}
+.F14{
+	font-size:14px;
+}
+.FB{
+	font-weight:bold;
+}
+.normal{
+	font-style:normal;
+	font-size:14px;
+	font-weight:normal;
+	color:#333;
+	padding:0;
+	margin:0;
+	text-align:left;
+}
+.cleardiv{
+	clear:both;
+}
+/*******************************************网站头部************************************/
+/*
+*顶部信息
+*/
+#header_login{
+	margin:auto;
+	height:30px;
+	line-height:30px;
+	background:url(topbga.gif) left top repeat-x;
+}
+#header_login .login{
+	width:60%;
+	padding-left:10px;
+}
+#header_login .login span{
+	display:block;
+	float:left;
+	padding-right:5px;
+}
+#header_login .login span.word em{
+	color:red;
+}
+#header_login .login span.word a{
+	color:blue;
+}
+#header_login .login span.input{
+	padding-top:4px !important;
+	padding-top:3px;
+}
+#header_login .login span.input input{
+	width:100px;
+	border:#CCC solid 1px;
+	height:18px;
+}
+#header_login .login span.sub{
+	padding:3px 10px 0 10px;
+}
+#header_login .login span.sub input{
+	width:50px;
+	text-align:center;
+}
+#header_login .login span.sub input{
+	width:50px;
+	text-align:center;
+}
+#header_login .info{
+	width:40%;
+	text-align:right;
+	padding-right:10px;
+	word-spacing:5px;
+	color:#666;
+}
+#header_login .info a{
+	color:blue;
+}
+/*
+*logo样式
+*/
+#header_logo{
+	background:url(logo_bg.gif) right bottom no-repeat;
+	height:80px;
+	margin:auto;
+}
+#header_logo td{
+	vertical-align:middle;
+	text-align:left;
+}
+/*
+*导航样式
+*/
+#Mainmenu{
+	clear:both;
+	margin:auto;
+	width:960px;
+	height:45px;
+	padding-left:15px;
+	background:url(header_menu.gif) center top no-repeat;
+}
+#Mainmenu a{
+	text-decoration:none;
+	text-align:center;	
+}
+#Mainmenu dl{
+	position:relative;
+	padding:0;
+	margin:0;
+	width:80px;
+	float:left;
+}
+#Mainmenu dl dt{
+	height:45px;
+	line-height:45px;
+	overflow:hidden;	
+	text-align:center;
+}
+#Mainmenu dl dt a{
+	display:block;
+	height:45px;
+	line-height:45px;
+	color:#ffFFFF;
+	font-size:16px;
+	font-family:"Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu;
+	
+}
+#Mainmenu dl.choose dt,#Mainmenu dl.over dt{
+	/*background:url(subon.gif) center bottom no-repeat;
+	border:#2886B3 solid 1px;
+	border-bottom:0;*/
+	background:url(menuon.gif) center 3px no-repeat;
+}
+#Mainmenu dl.choose dt a,#Mainmenu dl.over dt a{
+	color:#d23f28;
+}
+#Mainmenu dl dd{
+	position:absolute;
+	left:0;
+	top:33px;
+	display:none;
+}
+#Mainmenu dl.choose dd{
+	display:block;
+	width:80px;
+	background:url(menuon.gif) center bottom no-repeat;
+	padding:0px 0 3px 0;
+}
+#Mainmenu dl.choose dd div a{
+	display:block;
+	margin:0 3px 0 3px;
+	line-height:25px;
+	height:25px;
+	text-align:center;
+}
+#Mainmenu dl.choose dd div a:hover{
+	background:#25B0D4;
+	color:#FFF;
+}
+#Mainmenu div.post{
+	float:right;
+	background:url(menu_post.gif) left top no-repeat;	
+}
+#Mainmenu div.post span{
+	display:block;
+	padding:3px 20px 0 30px;
+	line-height:35px;
+	background:url(menu_note.gif) 18px 10px no-repeat;	
+}
+#Mainmenu div.post a{
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;	
+	font-family:'微软雅黑';
+
+}
+/**/
+#header_menu{
+	margin:auto;
+	width:929px;
+	height:38px;
+	background:url(header_menu.gif) center bottom no-repeat;
+	padding-left:20px;
+}
+#header_menu li{
+	margin-top:3px;
+	line-height:35px;
+	float:left;
+	background:url(menu_spacing.gif) left 11px no-repeat;	
+}
+#header_menu li a{
+	display:block;
+	padding:0 15px 0 16px;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+	text-decoration:none;	
+}
+#header_menu li a.choose{
+	background:#FFF url(menu_array.gif) center bottom no-repeat;
+	color:#333;
+}
+#header_menu li.post{
+	margin-top:0;
+	line-height:38px;
+	float:right;
+	background:url(menu_post.gif) left top no-repeat;	
+}
+#header_menu li.post a{
+	padding-left:30px;
+	background:url(menu_note.gif) 18px 10px no-repeat;	
+}
+/*
+*头部搜索
+*/
+#header_search{
+	margin:0 auto 10px auto;
+	height:70px;
+	background:url(head_searchbg.gif) center bottom no-repeat;
+}
+#header_search td{
+	padding-left:200px;
+	background:url(head_search.gif) 120px top no-repeat;
+	vertical-align:middle;
+}
+#header_search .search{
+	height:30px;
+}
+#header_search .search span{
+	display:block;
+	float:left;
+	padding-right:10px;
+}
+#header_search .search span.input input{
+	height:16px;
+	width:300px;
+}
+#header_search .search span.sub input{
+	width:60px;
+	text-align:center;
+}
+#header_search .search span.word{
+	padding-top:5px;
+}
+#header_search .search span a{
+	color:#0F42A6;
+}
+#header_search .moresearch a.b{
+	color:red;
+}
+/*
+*当前位置
+*/
+#nav_guide{
+	width:949px;
+	margin:0 auto 10px auto;
+	border:#DDD solid 1px;
+	line-height:25px;
+	color:#666;
+}
+#nav_guide a{
+	color:#666;
+}
+#nav_guide .t1,#nav_guide .t2{
+	float:left;
+}
+#nav_guide .t1{
+	padding-left:40px;
+	padding-right:5px;
+	border-right:#DDD solid 1px;
+	background:url(home_icon.gif) 20px 6px no-repeat;
+}
+#nav_guide .t2{
+	padding-left:10px;
+}
+/*
+*底部样式
+*/
+#copyright{
+	clear:both;
+	width:949px;
+	margin:10px auto 0 auto;
+	
+	text-align:center;
+	padding-top:10px;
+	line-height:20px;
+	color:#666;
+	padding-bottom:20px;
+}
+#copyright a{
+	color:#666;
+}
+
+
+
+
+/*********************************************************************
+**********************************************************************
+AJAX在线编辑DIV容器
+这个会员看不到.只是版主管理员才可以看到.这是后台风格
+一般不必修改了.修改了会员也看不到
+**********************************************************************
+*********************************************************************/
+#AjaxEditTable{
+	border:1px solid #BEDDFF;
+	background:#FFF;
+}
+#AjaxEditTable .head{
+	height: 21px;
+	background: #DBEAFF;
+	border-bottom:1px solid #BEDDFF;
+	padding:3px 5px 0 7px;
+}
+#AjaxEditTable .head a{
+	color:#FFF;
+}
+#AjaxEditTable .head span{
+	DISPLAY: block; 
+	FLOAT: right;
+}
+#AjaxEditTable .middle{
+	background:#FFF;
+	line-height:18px;
+	padding:5px;
+}
+#AjaxEditTable .middle input,#AjaxEditTable .middle textarea{
+	border:1px solid #BEDDFF;
+	background:#FFF;
+}

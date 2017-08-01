@@ -1,0 +1,6 @@
+框架
+
+本系统使用Spark框架，结合HBase数据库、Tomcat集群、Hadoop集群组成。
+缓冲服务器端主要使用HBase和HDFS，HBase用来存储结构化数据，hdfs用来存储训练模型数据，
+主要分析系统是通过Spark集群来实现其快速分析，通过tomcat和echarts把可视化数据传到页面显示端口，
+通过PC和手机都可以访问
