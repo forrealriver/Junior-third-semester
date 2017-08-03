@@ -68,6 +68,12 @@ u8 SIM_HANDLE_MESSAGE_CMD(void)
 		return 1;
 	}
 	else if(strstr(USART1_RX_BUF,"006F00660066")!=NULL)	return 2;
+
+    if(strstr(USART1_RX_BUF,"on")!=NULL)
+	{
+		return 1;
+	}
+	else if(strstr(USART1_RX_BUF,"off")!=NULL)	return 2;
 	return 0;
 }
 
