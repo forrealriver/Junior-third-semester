@@ -1,0 +1,25 @@
+
+//是圆圈表那个 00到23时的客流量表 hour:0 表示00点客流量 hour:23表示23点客流量
+create 'day_keliu','hour'
+//面的所有'hour','day','week','month'均用标识记录历史数据 比如 hour:1 过去一小时的 hour:2 过去两小时的
+//now 为实时值
+//每一个的行键是 “1”，没有说明的标识就是用“1”表示
+create 'keliu','now','hour','day','week','month','h_hour','h_day','h_week','h_month'
+
+
+create 'rudian','now','hour','day','week','month','h_hour','h_day','h_week','h_month'
+
+create 'rudr','now','hour','day','week','month','h_hour','h_day','h_week','h_month'
+
+create 'zhouqi1','now','rate','hour','day','week','month','h_hour','h_day','h_week','h_month'
+create 'zhouqi2','now','rate','hour','day','week','month','h_hour','h_day','h_week','h_month'
+create 'zhouqi3','now','rate','hour','day','week','month','h_hour','h_day','h_week','h_month'
+create 'zhouqi4','now','rate','hour','day','week','month','h_hour','h_day','h_week','h_month'
+create 'zhouqi5','now','rate','hour','day','week','month','h_hour','h_day','h_week','h_month'
+
+create 'new_old','new','old','hour','day','week','month','h_hour','h_day','h_week','h_month'
+
+create 'zhudian1','now','hour','day','week','month','h_hour','h_day','h_week','h_month'
+create 'zhudian2','now','hour','day','week','month','h_hour','h_day','h_week','h_month'
+create 'zhudian3','now','hour','day','week','month','h_hour','h_day','h_week','h_month'
+create 'zhudian4','now','hour','day','week','month','h_hour','h_day','h_week','h_month'

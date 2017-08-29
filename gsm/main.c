@@ -8,6 +8,7 @@
 sbit P10=P0^0;
 sbit P11=P0^1;
 sbit RUNING_LED=P0^2;
+sbit rr_les=P0^3;
 void main(void)
 {
 	u8 res;
@@ -17,7 +18,7 @@ void main(void)
 	res=1;
 	P10=0;
 	RUNING_LED=0;
-
+  rr_les=0;
 	while(res)
 	{
 		res=sim900a_work_test();
@@ -39,6 +40,8 @@ void main(void)
 			{
 				if(res==1)		RUNING_LED=0;
 				else if(res==2)		RUNING_LED=1;
+				else if(res==3)   rr_les=0;
+				else if(res==4)   rr_les=1;
 			} 
 		}		
 	}	

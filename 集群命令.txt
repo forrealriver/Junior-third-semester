@@ -1,0 +1,11 @@
+/usr/lib/hadoop/sbin/start-all.sh
+/usr/lib/hbase/bin/start-hbase.sh
+/usr/lib/hbase/bin/hbase shell
+/usr/lib/hbase/bin/hbase-daemon.sh stop zookeeper
+/usr/lib/hbase/bin/hbase-daemon.sh start zookeeper
+/usr/lib/spark/sbin/start-all.sh
+
+
+/usr/lib/spark/sbin/stop-all.sh
+/usr/lib/hbase/bin/stop-hbase.sh
+/usr/lib/hadoop/sbin/stop-all.sh

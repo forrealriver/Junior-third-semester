@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   MAIN                                                                  08/03/2017 21:18:07 PAGE 1   
+C51 COMPILER V9.01   MAIN                                                                  08/27/2017 14:41:07 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
@@ -17,53 +17,56 @@ line level    source
    8          sbit P10=P0^0;
    9          sbit P11=P0^1;
   10          sbit RUNING_LED=P0^2;
-  11          void main(void)
-  12          {
-  13   1              u8 res;
-  14   1              Uart1Init();
-  15   1              Timer0Init();
-  16   1              EA=1;   //开总中断
-  17   1              res=1;
-  18   1              P10=0;
-  19   1              RUNING_LED=0;
-  20   1      
-  21   1              while(res)
-  22   1              {
-  23   2                      res=sim900a_work_test();
-  24   2              }
-  25   1              res=1;
-  26   1              while(res)
-  27   1              {
-  28   2                      res=sim900a_enmessage_mode_out();
-  29   2              } 
-  30   1              P10=1;
-  31   1              res=1;
-  32   1              while(1)
-  33   1              {
-  34   2                      if(Flag_Rec_Message==1) 
-  35   2                      {
-  36   3                              Flag_Rec_Message=0;
-  37   3                              res=SIM_HANDLE_MESSAGE_CMD();
-  38   3                         if(res)
-  39   3                              {
-  40   4                                      if(res==1)              RUNING_LED=0;
-  41   4                                      else if(res==2)         RUNING_LED=1;
-  42   4                              } 
-  43   3                      }               
-  44   2              }       
-  45   1      }
-  46          
-  47          
-  48          
+  11          sbit rr_les=P0^3;
+  12          void main(void)
+  13          {
+  14   1              u8 res;
+  15   1              Uart1Init();
+  16   1              Timer0Init();
+  17   1              EA=1;   //开总中断
+  18   1              res=1;
+  19   1              P10=0;
+  20   1              RUNING_LED=0;
+  21   1        rr_les=0;
+  22   1              while(res)
+  23   1              {
+  24   2                      res=sim900a_work_test();
+  25   2              }
+  26   1              res=1;
+  27   1              while(res)
+  28   1              {
+  29   2                      res=sim900a_enmessage_mode_out();
+  30   2              } 
+  31   1              P10=1;
+  32   1              res=1;
+  33   1              while(1)
+  34   1              {
+  35   2                      if(Flag_Rec_Message==1) 
+  36   2                      {
+  37   3                              Flag_Rec_Message=0;
+  38   3                              res=SIM_HANDLE_MESSAGE_CMD();
+  39   3                         if(res)
+  40   3                              {
+  41   4                                      if(res==1)              RUNING_LED=0;
+  42   4                                      else if(res==2)         RUNING_LED=1;
+  43   4                                      else if(res==3)   rr_les=0;
+  44   4                                      else if(res==4)   rr_les=1;
+  45   4                              } 
+  46   3                      }               
+  47   2              }       
+  48   1      }
   49          
+  50          
+  51          
+  52          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     64    ----
+C51 COMPILER V9.01   MAIN                                                                  08/27/2017 14:41:07 PAGE 2   
+
+   CODE SIZE        =     80    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
-C51 COMPILER V9.01   MAIN                                                                  08/03/2017 21:18:07 PAGE 2   
-
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----

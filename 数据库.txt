@@ -1,6 +1,6 @@
-﻿//当前客流量表
+//当前客流量表
 create 'temp','range','time'
-//客流量历史表
+//客流量历史表，每三秒存一次
 create 'temp_log','count'
 //当前店内人数表
 create 'store_temp','time'
@@ -27,7 +27,6 @@ create 'deep_log','num','all','rate'
 //活跃度历史
 create 'activity_log','high','medium','low','sleep'
 
-//实时的你怎么样方便，你来建表吧  需要什么说明下 我来写
 
 
 

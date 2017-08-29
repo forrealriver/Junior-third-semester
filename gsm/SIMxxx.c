@@ -63,17 +63,16 @@ u8 sim900a_enmessage_mode_out(void)	//让GSM板收到的英文或数字短信不转码
 }
 u8 SIM_HANDLE_MESSAGE_CMD(void)
 {
-	if(strstr(USART1_RX_BUF,"006F006E")!=NULL)
-	{
-		return 1;
-	}
-	else if(strstr(USART1_RX_BUF,"006F00660066")!=NULL)	return 2;
-
-    if(strstr(USART1_RX_BUF,"on")!=NULL)
-	{
-		return 1;
-	}
-	else if(strstr(USART1_RX_BUF,"off")!=NULL)	return 2;
+	if(strstr(USART1_RX_BUF,"006F006E0031")!=NULL)  return 1;
+	else if(strstr(USART1_RX_BUF,"006F006600660031")!=NULL)	return 2;
+  else if(strstr(USART1_RX_BUF,"006F006E0032")!=NULL)  return 3;
+	else if(strstr(USART1_RX_BUF,"006F006600660032")!=NULL)	return 4;
+	
+  else if(strstr(USART1_RX_BUF,"on1")!=NULL)  return 1;
+	else if(strstr(USART1_RX_BUF,"off1")!=NULL)	return 2;
+	else if(strstr(USART1_RX_BUF,"on2")!=NULL)  return 3;
+	else if(strstr(USART1_RX_BUF,"off2")!=NULL)	return 4;
+	
 	return 0;
 }
 
